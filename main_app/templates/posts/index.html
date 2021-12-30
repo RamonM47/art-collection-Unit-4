@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/post-index.css' %}"/>
+
 {% block head %}
+  <link 
+    rel="stylesheet" 
+    type="text/css" 
+    href="{% static 'css/post-index.css' %}"/>
 {% endblock head %}
 
 {% block content %}
 <section class="page-header">
   <h1>post List</h1>
-  <img src="{% static 'images/cool-post.svg' %}" alt="A cool post" />
-  <img src="{% static 'images/happy-post.svg' %}" alt="A happy post" />
-  <img src="{% static 'images/teacup-post.svg' %}" alt="A post in a teacup" />
-  <img src="{% static 'images/post-in-box.svg' %}" alt="A post in a box" />
+  {% for post in posts %}
+    <p>
+          {% if post.published == 'yes' %}
+            <img class='tag'
+            src="{% static 'images/export 1.png' %}" alt="complete">
+          {% else %}
+            <img class='tag'
+            src="{% static 'images/export(2).png' %}" alt="complete">
+          {% endif %}
+          {{post.name}}
+    </p>
+  {% endfor %}
 </section>
 
 <section class="card-container">
@@ -19,9 +31,22 @@
       <div class="card-content">
         <div class="card-img-container">
         </div>
-        <h2 class="card-title">{{ post.name }}</h2>
-          <img src="{{post.current_state}}" alt="result">
-        <p><small>{{ post.goal }}</small></p>
+        <h2 class="card-title">
+          {{ post.name }}
+        </h2>
+        {% if post.published == 'yes' %}
+          <img
+          class='art' 
+          src="{{post.current_state}}" 
+          alt="result">
+          <p>{{ post.goal }}</p>
+        {% else %}
+          <img 
+          class='art1'
+          src="{{post.sketch}}" 
+          alt="">  
+          <p> {{ post.name }} is still in the works!</p>
+        {% endif %}
       </div>
     </div>
   {% endfor %}

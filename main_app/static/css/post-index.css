@@ -3,9 +3,13 @@
 }
 
 .art {
-  width: 500px;
+  height: 500px;
 }
 
 .art1{
-  width: 500px;
+  height: 500px;
+}
+
+.card-container {
+  display: flex;
 }

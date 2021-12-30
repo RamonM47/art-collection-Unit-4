@@ -1,6 +1,5 @@
 from django import http
 from django.shortcuts import render
-from django.http import HttpResponse
 
 class Post:
   def __init__(self, name, goal, sketch, current_state, published):
@@ -22,7 +21,7 @@ posts = [
 
 # Create your views here.
 def home(request):
-  return HttpResponse('<a href="/about">About</a>')
+  return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')

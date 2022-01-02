@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 MEALS = (
   ('B', 'Breakfast'),
@@ -14,6 +15,9 @@ class Post(models.Model):
   sketch = models.CharField(max_length=500)
   current_state = models.CharField(max_length=500)
   published = models.CharField(max_length=3)
+
+  def worked_on_today(self):
+    return self.work_set.filter(date=date.today()).count() >= len(MEALS)
 
   def __str__(self):
     return self.name

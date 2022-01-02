@@ -52,8 +52,13 @@
       method="post" 
       class="subsection-content"
       >
-        {% csrf_token %}
-        {{ work_form.as_p }}
+      {% if post.worked_on_today %}
+        <p class ='worked'> {{post.name}} has been worked on today </p>
+      {% else %}
+        <p class = 'un_worked'>{{post.name}} hasnt been worked on :(</p>
+      {% endif %}
+      {% csrf_token %}
+      {{ work_form.as_p }}
         <button type="submit" class="btn submit">Update last Worked on Date</button>
       </form>
       <h3>Past Feedings</h3>

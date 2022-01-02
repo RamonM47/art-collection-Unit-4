@@ -46,29 +46,34 @@
       <div class="subsection-title">
         <h2>Feedings</h2>
       </div>
-      <h3>Add a Feeding</h3>
+      <h3>Update your last worked</h3>
       <form
+      action="{% url 'add_worked_on' post.id %}"
       method="post" 
       class="subsection-content"
       >
-      {% csrf_token %}
-      {{ work_form.as_p }}
-      <button type="submit" class="btn submit">Add Feeding</button>
+        {% csrf_token %}
+        {{ work_form.as_p }}
+        <button type="submit" class="btn submit">Update last Worked on Date</button>
       </form>
       <h3>Past Feedings</h3>
-      <table>
-        <thead>
-          <tr><th>Date</th><th>Meal</th></tr>
-        </thead>
-        <tbody>
-          {% for work in post.work_set.all %}
-            <tr>
-              <td>{{work.date}}</td>
-              <td>{{work.get_meal_display}}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+      {% if post.work_set.all.count %}
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Meal</th></tr>
+          </thead>
+          <tbody>
+            {% for work in post.work_set.all %}
+              <tr>
+                <td>{{work.date}}</td>
+                <td>{{work.get_meal_display}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p class="subsection-content">{{post.name}} has yet to be worked on! 😟</p>
+      {% endif %}
     </section>
   </div>
 {% endblock content %}

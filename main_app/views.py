@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Post
-# from .forms import WorkForm
+from .forms import WorkForm
 
 
 
@@ -18,8 +18,16 @@ def community_index(request):
 
 def posts_detail(request, post_id):
   post = Post.objects.get(id=post_id)
-  # work_form = WorkForm()
-  return render(request, 'posts/detail.html', { 'post': post})
+  work_form = WorkForm()
+  return render(request, 'posts/detail.html', { 'post': post, 'work_form': work_form })
+
+def add_worked_on(request, post_id):
+  form = WorkForm(request.POST)
+  if form.is_valid():
+    new_work = form.save(commit=False)
+    new_work.post_id = post_id
+    new_work.save()
+  return redirect('posts_detail', post_id=post_id)
 
 class PostCreate(CreateView):
   model = Post
@@ -33,3 +41,4 @@ class PostUpdate(UpdateView):
 class PostDelete(DeleteView):
   model = Post
   success_url = '/posts/'
+

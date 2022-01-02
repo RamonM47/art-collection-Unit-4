@@ -1,7 +1,7 @@
-# from  django.forms import ModelForm
-# from .models import Work
+from  django.forms import ModelForm
+from .models import Work
 
-# class WorkForm(ModelForm):
-#   class Meta:
-#     model = Work
-#     fields = '__all__'
+class WorkForm(ModelForm):
+  class Meta:
+    model = Work
+    fields = ['date', 'meal']

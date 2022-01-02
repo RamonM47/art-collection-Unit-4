@@ -24,7 +24,7 @@ class Post(models.Model):
 class Work(models.Model):
   date = models.DateField('Last worked on')
   meal = models.CharField(
-    max_length=3, 
+    max_length=1, 
     choices=MEALS, 
     default=MEALS[0][0]
   )
@@ -33,3 +33,6 @@ class Work(models.Model):
 
   def __str__(self):
     return f"{self.get_meal_display()} on {self.date}"
+
+  class Meta:
+    ordering = ['-date']

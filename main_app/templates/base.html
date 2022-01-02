@@ -14,7 +14,7 @@
   <header>
     <ul>
       <li>
-        <a href="/about">
+        <a href="{% url 'about' %}">
           About
         </a> 
       </li>
@@ -24,8 +24,12 @@
         </a>
       </li>
       <li>
-        <a href="/posts">
+        <a href="{% url 'community_index' %}">
           Community Posts</a>
+      </li>
+      <li>
+        <a href="{% url 'posts_create' %}">
+          Create Post</a>
       </li>
     </ul>
   </header>

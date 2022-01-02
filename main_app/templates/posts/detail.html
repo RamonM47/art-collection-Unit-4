@@ -18,7 +18,12 @@
         <img class= 'current' src="{{post.current_state}}" alt="pic">
       </div>
       <div>
-        <h4>The goal of this peice is...</h4> <p>{{post.goal}}</p>
+        <h4>The goal of this peice is...</h4>
+        <p>{{post.goal}}</p>
+      </div>
+      <div>
+        <a href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'posts_delete' post.id %}" class="btn danger">Delete</a>
       </div>
     </section>
 {% endblock content %}

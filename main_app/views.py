@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Post
+# from .forms import WorkForm
 
 
 
@@ -17,6 +18,7 @@ def community_index(request):
 
 def posts_detail(request, post_id):
   post = Post.objects.get(id=post_id)
+  # work_form = WorkForm()
   return render(request, 'posts/detail.html', { 'post': post})
 
 class PostCreate(CreateView):

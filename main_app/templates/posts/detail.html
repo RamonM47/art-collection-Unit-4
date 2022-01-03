@@ -29,7 +29,15 @@
     <section>
       <h1>{{post.name}}</h1>
       <div>
-        <img class= 'current' src="{{post.current_state}}" alt="pic">
+        {% if post.photo.url %}
+          <img 
+            src="{{post.photo.url}}" 
+            alt="A photo of {{post.name}}"
+            class="usr-img"
+          >
+        {% else %}
+          <img class= 'current' src="{{post.current_state}}" alt="pic">
+        {% endif %}
       </div>
       <div>
         <h4>The goal of this peice is...</h4>
@@ -37,11 +45,25 @@
       </div>
       <div>
         <a href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>
-      <a href="{% url 'posts_delete' post.id %}" class="btn danger">Delete</a>
+        <a href="{% url 'posts_delete' post.id %}" class="btn danger">Delete</a>
+        <h3>Update {{ post.name }}'s photo</h3>
+        <p id="file-name"></p>
+        <form 
+          action="{% url 'add_photo' post.id %}"
+          enctype="multipart/form-data"
+          method="POST"
+        >
+          {% csrf_token %}
+          <label class="btn secondary">
+            Choose photo
+            <input type="file" name="photo-file" id="file-input">
+          </label>
+          <button type="submit" class="btn submit">Upload Photo</button>
+        </form>
       </div>
     </section>
     
-  <div class="works-toy-container">
+  <div class="work-container">
     <section class="works">
       <div class="subsection-title">
         <h2>Feedings</h2>

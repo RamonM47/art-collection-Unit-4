@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 MEALS = (
   ('B', 'Breakfast'),
@@ -11,10 +12,11 @@ MEALS = (
 # Create your models here.
 class Post(models.Model):
   name = models.CharField(max_length=50)
-  goal = models.CharField(max_length=200)
-  sketch = models.CharField(max_length=500)
-  current_state = models.CharField(max_length=500)
-  published = models.CharField(max_length=3)
+  goal = models.TextField(max_length=250)
+  sketch = models.URLField(max_length=500)
+  current_state = models.URLField(max_length=500)
+  published = models.BooleanField()
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def worked_on_today(self):
     return self.work_set.filter(date=date.today()).count() >= len(MEALS)
@@ -26,7 +28,8 @@ class Post(models.Model):
     return reverse('posts_detail', kwargs={'post_id': self.id})
   
 class Work(models.Model):
-  date = models.DateField('Last worked on')
+  date = models.DateTimeField (auto_now=False)
+  start_date = models.DateTimeField(auto_now_add=True)
   meal = models.CharField(
     max_length=1, 
     choices=MEALS, 

@@ -3,10 +3,10 @@ from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
 
-MEALS = (
-  ('B', 'Breakfast'),
-  ('L', 'Lunch'),
-  ('D', 'Dinner')
+TOD = (
+  ('M', 'Morning'),
+  ('A', 'AfterNoon'),
+  ('N', 'Night')
 )
 
 # Create your models here.
@@ -19,7 +19,7 @@ class Post(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def worked_on_today(self):
-    return self.work_set.filter(date=date.today()).count() >= len(MEALS)
+    return self.work_set.filter(date=date.today()).count() >= len(TOD)
 
   def __str__(self):
     return self.name
@@ -28,12 +28,11 @@ class Post(models.Model):
     return reverse('posts_detail', kwargs={'post_id': self.id})
   
 class Work(models.Model):
-  date = models.DateTimeField (auto_now=False)
-  start_date = models.DateTimeField(auto_now_add=True)
+  date = models.DateField()
   meal = models.CharField(
     max_length=1, 
-    choices=MEALS, 
-    default=MEALS[0][0]
+    choices=TOD, 
+    default=TOD[0][0]
   )
 
   post = models.ForeignKey(Post, on_delete=models.CASCADE)

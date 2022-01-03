@@ -13,24 +13,25 @@
 <body>
   <header>
     <ul>
-      <li>
-        <a href="{% url 'about' %}">
-          About
-        </a> 
-      </li>
-      <li>
-        <a href="/">
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="{% url 'community_index' %}">
-          Community Posts</a>
-      </li>
-      <li>
-        <a href="{% url 'posts_create' %}">
-          Create Post</a>
-      </li>
+      {% if user.is_authenticated %}
+        
+        <li>
+          <a href="{% url 'community_index' %}">Community Posts</a>
+        </li>
+        <li>
+          <a href="{% url 'posts_create' %}">Create Post</a>
+        </li>
+        <li>
+          <a href="{% url 'logout' %}">Log out</a>
+        </li>
+        {% else %}
+        <li>
+          <a href="{% url 'home' %}">Login</a>
+        </li>
+        <li>
+          <a href="{% url 'about' %}">About</a> 
+        </li>
+      {% endif %}
     </ul>
   </header>
   <main>

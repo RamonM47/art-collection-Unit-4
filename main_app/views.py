@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Post, Photo
 from .forms import WorkForm
+from django.contrib.auth.views import LoginView
 import uuid
 import boto3
 
@@ -37,7 +38,7 @@ def add_worked_on(request, post_id):
 
 class PostCreate(CreateView):
   model = Post
-  fields = '__all__'
+  fields = ['name', 'goal', 'sketch', 'current_state', 'published']
   success_url = '/posts/'
 
 class PostUpdate(UpdateView):
@@ -64,3 +65,6 @@ def add_photo(request, post_id):
     except Exception as err:
       print('An error occurred uploading file to S3: %s' % err)
   return redirect('posts_detail', post_id=post_id)
+
+class Home(LoginView):
+  template_name = 'home.html'

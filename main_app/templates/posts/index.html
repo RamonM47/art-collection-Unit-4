@@ -14,7 +14,7 @@
   {% for post in posts %}
     <p>
         <a href="{% url 'posts_detail' post.id %}">
-          {% if post.published == 'True' %}
+          {% if post.published == 't' %}
             <img class='tag'
             src="{% static 'images/export 1.png' %}" alt="complete">
           {% else %}
@@ -37,7 +37,7 @@
           <h2 class="card-title">
             {{ post.name }}
           </h2>
-          {% if post.published == 'True' %}
+          {% if post.published == 't' %}
               <a href="{% url 'posts_detail' post.id %}">
                 <img
                 class='art' 

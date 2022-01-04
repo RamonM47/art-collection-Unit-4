@@ -6,10 +6,8 @@
 {% endblock head %}
 
 {% block content %}
-  <div>
-    <img src="{% static 'images/QOLM0744.JPG'%}" alt="Home Welcome">
-  </div>
 {% if not user.is_authenticated %}
+  
   <section>
     <form action="{% url 'home' %}" method="post" class="login">
       <h1>Login</h1>
@@ -19,5 +17,9 @@
       <button type="submit" class="btn submit">Login</button>
     </form>
   </section>
+{% else %}
+  <div>
+    <h1>Welcome to the Oculus {{post.user}} </h1>
+  </div>
 {% endif %}
 {% endblock content %}

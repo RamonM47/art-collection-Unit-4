@@ -16,7 +16,7 @@ class Post(models.Model):
   sketch = models.URLField(max_length=500)
   current_state = models.URLField(max_length=500)
   published = models.BooleanField()
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
   def worked_on_today(self):
     return self.work_set.filter(date=date.today()).count() >= len(TOD)
@@ -29,7 +29,7 @@ class Post(models.Model):
   
 class Work(models.Model):
   date = models.DateField()
-  meal = models.CharField(
+  tod = models.CharField(
     max_length=1, 
     choices=TOD, 
     default=TOD[0][0]
@@ -38,7 +38,7 @@ class Work(models.Model):
   post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
   def __str__(self):
-    return f"{self.get_meal_display()} on {self.date}"
+    return f"{self.get_tod_display()} on {self.date}"
 
   class Meta:
     ordering = ['-date']

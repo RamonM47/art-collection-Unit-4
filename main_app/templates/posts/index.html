@@ -37,7 +37,7 @@
           <h2 class="card-title">
             {{ post.name }}
           </h2>
-          {% if post.published == 't' %}
+          {% if post.published == True %}
               <a href="{% url 'posts_detail' post.id %}">
                 <img
                 class='art' 

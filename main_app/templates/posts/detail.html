@@ -74,33 +74,30 @@
       method="post" 
       class="subsection-content"
       >
-      {% if post.worked_on_today %}
-        <p class ='worked'> {{post.name}} has been worked on today </p>
-      {% else %}
-        <p class = 'un_worked'>{{post.name}} hasnt been worked on :(</p>
-      {% endif %}
       {% csrf_token %}
       {{ work_form.as_p }}
         <button type="submit" class="btn submit">Update last Worked on Date</button>
       </form>
       <h3>Past Feedings</h3>
+      {% for work in post.work_set.all %}
       {% if post.work_set.all.count %}
         <table>
           <thead>
             <tr><th>Date</th><th>time of Day</th></tr>
           </thead>
           <tbody>
-            {% for work in post.work_set.all %}
+            
               <tr>
                 <td>{{work.date}}</td>
                 <td>{{work.get_tod_display}}</td>
               </tr>
-            {% endfor %}
+            
           </tbody>
         </table>
       {% else %}
         <p class="subsection-content">{{post.name}} has yet to be worked on! 😟</p>
       {% endif %}
+      {% endfor %}
     </section>
   </div>
 {% endblock content %}

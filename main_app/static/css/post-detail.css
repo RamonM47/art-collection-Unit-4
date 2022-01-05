@@ -54,3 +54,11 @@
   width: 100%;
 }
 
+.sketch {
+  grid-row: 2;
+  grid-column: 3;
+}
+
+.sketch_img {
+  width: 90%;
+}

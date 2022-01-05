@@ -132,6 +132,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
+SITE_ID=1
+
 # Configure Django App for Heroku.
 import django_on_heroku
 django_on_heroku.settings(locals())

@@ -42,7 +42,7 @@ class Work(models.Model):
     return f"{self.get_tod_display()} on {self.date}"
 
   class Meta:
-    ordering = ['-date']
+    ordering = ['date']
 
 class Photo(models.Model):
   url = models.CharField(max_length=250)

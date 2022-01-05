@@ -21,8 +21,8 @@
 {% endblock head %}
 
 {% block content %}
-  <section>
-      <div>
+  <section class='post_all'>
+      <div class='post_details'>
         {% if not post.photo.url %}
           <h1>{{post.name}} by {{post.user}}</h1>
           <img class= 'current' src="{{post.current_state}}" alt="pic">
@@ -42,7 +42,7 @@
         <a href="{% url 'posts_delete' post.id %}" class="btn danger">Delete</a>
       </div>
 
-      <div>
+      <div class='post_change'>
         <h3>Update {{ post.name }}'s State</h3>
         <p id="file-name"></p>
         <form 
@@ -58,13 +58,9 @@
           <button type="submit" class="btn submit">Upload Photo</button>
         </form>
       </div>
-  </section>
-    
-  <div class="work-container">
-    <section class="works">
-      <div class="subsection-title">
-        <h2>Work Log</h2>
-      </div>
+
+    <div class='post_progress'>
+      <h2>Work Log</h2>
       <h3>Add a Progress Picture</h3>
       <form
       action="{% url 'add_worked_on' post.id %}"
@@ -75,12 +71,14 @@
       {{ work_form.as_p }}
         <button type="submit" class="btn submit">Update last Worked on Date</button>
       </form>
+    </div>
+    <div class='post_past'>
       <h3>Past Iterations</h3>
       {% for work in post.work_set.all %}
       {% if post.work_set.all.count %}
         <table class='table'>
           <thead>
-            <tr><th>Date</th><th>Time of Day Worked on</th><th>Tada!</th></tr>
+            <tr><th>Date</th><th>Time of Day Worked on</th><th>↓</th></tr>
           </thead>
           <tbody>
               <tr>
@@ -96,6 +94,6 @@
         <p class="subsection-content">{{post.name}} has yet to be worked on! 😟</p>
       {% endif %}
       {% endfor %}
-    </section>
-  </div>
+    </div>
+  </section>
 {% endblock content %}

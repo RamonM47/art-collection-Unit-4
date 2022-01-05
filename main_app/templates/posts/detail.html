@@ -27,11 +27,11 @@
           <h1>{{post.name}} by {{post.user}}</h1>
           <img class= 'current' src="{{post.current_state}}" alt="pic">
         {% else %}
-          
+          <h1>{{post.name}} by {{post.user}}</h1>
           <img 
             src="{{post.photo.url}}" 
             alt="A photo of {{post.name}}"
-            class="usr-img"
+            class="current"
           >
         {% endif %}
 

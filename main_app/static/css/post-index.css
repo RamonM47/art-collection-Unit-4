@@ -1,5 +1,6 @@
 .tag {
-  width: 50px;
+  width: 70px;
+  padding-top: 5px;
 }
 
 .art {
@@ -10,7 +11,7 @@
   height: 500px;
 }
 
-.card-container {
+.card_container {
   display: flex;
 }
 
@@ -22,3 +23,18 @@ h1 {
 .page_header {
   display: flex;
 }
+
+.card {
+  padding: 2px 16px;
+}
+
+.card_content {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+  transition: 0.3s;
+  border-radius: 3px;
+}
+
+.card_content:hover {
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+

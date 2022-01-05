@@ -48,7 +48,7 @@ def add_worked_on(request, post_id):
 class PostCreate(LoginRequiredMixin, CreateView):
   login_url = '/'
   model = Post
-  fields = ['name', 'goal', 'sketch', 'current_state', 'published']
+  fields = ['name', 'goal', 'sketch', 'current_state']
   success_url = '/posts/'
 
   def form_vaild(self, form):
@@ -58,7 +58,7 @@ class PostCreate(LoginRequiredMixin, CreateView):
 class PostUpdate(LoginRequiredMixin , UpdateView):
   login_url = '/'
   model = Post
-  fields = ['name', 'current_state', 'published']
+  fields = ['name', 'current_state', 'updates']
 
 class PostDelete(LoginRequiredMixin, DeleteView):
   login_url = '/'

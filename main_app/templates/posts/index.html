@@ -14,14 +14,14 @@
   {% for post in posts %}
     <p>
         <a href="{% url 'posts_detail' post.id %}">
-          {% if post.published == True %}
+          {% if post.updates == True %}
             <img class='tag'
             src="{% static 'images/export 1.png' %}" alt="complete">
           {% else %}
             <img class='tag'
             src="{% static 'images/export(2).png' %}" alt="incomplete">
           {% endif %}
-          See {{post.name}}
+          See {{post.name}} by {{post.user}}
         </a>
     </p>
   {% endfor %}
@@ -37,14 +37,14 @@
           <h2 class="card-title">
             {{ post.name }}
           </h2>
-          {% if post.published == True %}
-              <a href="{% url 'posts_detail' post.id %}">
-                <img
+          {% if post.updates == True  and post.photo.url%}
+            <a href="{% url 'posts_detail' post.id %}">
+              <img
                 class='art' 
-                src="{{post.current_state}}" 
+                src="{{post.photo.url}}" 
                 alt="result">
             </a>
-              <p>{{ post.goal }}</p>
+              <p>New Updates!</p>
             {% else %}
             <a href="{% url 'posts_detail' post.id %}">
               <img 
@@ -52,7 +52,7 @@
               src="{{post.sketch}}" 
               alt="">  
             </a>
-            <p> {{ post.name }} is still in the works!</p>
+            <p>No New Updates From {{ post.name }}</p>
           {% endif %}
         </div>
       

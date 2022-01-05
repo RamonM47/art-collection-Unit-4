@@ -16,7 +16,7 @@ class Post(models.Model):
   goal = models.TextField(max_length=250)
   sketch = models.URLField(max_length=500)
   current_state = models.URLField(max_length=500)
-  published = models.BooleanField()
+  updates = models.BooleanField(default='False')
   user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
   def worked_on_today(self):

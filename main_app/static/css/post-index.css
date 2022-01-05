@@ -13,3 +13,12 @@
 .card-container {
   display: flex;
 }
+
+h1 {
+  padding-top: 36px;
+  margin: 0;
+}
+
+.page_header {
+  display: flex;
+}

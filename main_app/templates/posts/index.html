@@ -9,10 +9,10 @@
 {% endblock head %}
 
 {% block content %}
-<section class="page-header">
-  <h1>post List</h1>
+<h1>Post List</h1>
+<section class="page_header">
   {% for post in posts %}
-    <p>
+      <div class='icon'>
         <a href="{% url 'posts_detail' post.id %}">
           {% if post.updates == True %}
             <img class='tag'
@@ -23,7 +23,7 @@
           {% endif %}
           See {{post.name}} by {{post.user}}
         </a>
-    </p>
+      </div>
   {% endfor %}
 </section>
 
@@ -32,12 +32,10 @@
     <div class="card">
       
         <div class="card-content">
-          <div class="card-img-container">
-          </div>
           <h2 class="card-title">
             {{ post.name }}
           </h2>
-          {% if post.updates == True  and post.photo.url%}
+          {% if post.updates == True  or post.photo.url%}
             <a href="{% url 'posts_detail' post.id %}">
               <img
                 class='art' 
@@ -52,7 +50,7 @@
               src="{{post.sketch}}" 
               alt="">  
             </a>
-            <p>No New Updates From {{ post.name }}</p>
+            <p>No New Updates On {{ post.name }}</p>
           {% endif %}
         </div>
       

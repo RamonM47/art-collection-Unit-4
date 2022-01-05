@@ -1,20 +1,48 @@
 form.login {
+  background-image: url("https://i.ibb.co/Vxv7V0v/SLAB.png");
+  margin-bottom: 10px;
+  object-fit: cover;
 }
 
 .home_div {
-  align-content: center;
+  display: grid;
+  grid-template-columns: 1fr 60% 1fr;
+  grid-template-rows: 38px 1fr 1fr;
+  background-image: url("https://image.freepik.com/free-photo/close-up-white-marble-texture-background_53876-63512.jpg");
+}
+
+.form_div {
+  grid-column: 2;
+  grid-row: 3;
 }
 
 .le_frame {
-  position: absolute;
-  left: auto;
+  width: 100%;
+  height: 100%;
+  margin-top: 38px;
 }
 
-.le_pantheon {
-  width: 480px;
-  height: 321px;
-  position: absolute;
-  top: 166px;
-  left: 700px;
+.le_container {
+  text-align: center;
+  grid-column: 2;
+  grid-row: 2;
 }
 
+.instruction {
+  text-shadow: -2px -2px 2px #fff, 2px 2px 2px #000;
+	color: #9c8468;
+	opacity: 0.7;
+	font: 50px 'Museo700';
+}
+
+label {
+  text-shadow: -2px -2px 2px #fff, 2px 2px 2px #000;
+	color: #9c8468;
+	opacity: 0.7;
+	font: 30px 'Museo700';
+}
+
+.main_header {
+  grid-column: 2;
+  grid-row: 3;
+}

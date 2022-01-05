@@ -2,24 +2,27 @@
 {% load static %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
 {% endblock head %}
 
 {% block content %}
-{% if not user.is_authenticated %}
-  
-  <section>
-    <form action="{% url 'home' %}" method="post" class="login">
-      <h1>Login</h1>
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}">
-      <button type="submit" class="btn submit">Login</button>
-    </form>
-  </section>
-{% else %}
-  <div>
-    <h1>Welcome to Oculus {{post.user}} </h1>
-  </div>
-{% endif %}
+  {% if not user.is_authenticated %}
+    <section>
+      <img class='le_frame' src="https://thumbs.dreamstime.com/b/gold-plated-wooden-picture-frame-w-path-592487.jpg" alt="leframe">
+      <img class='le_pantheon' src="https://media.istockphoto.com/photos/interior-of-rome-pantheon-with-the-famous-light-ray-picture-id503675599" alt="Le Pantheon">
+      <div class='home_div'>
+        <form action="{% url 'home' %}" method="post" class="login">
+          <h1>Login</h1>
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="hidden" name="next" value="{{ next }}">
+          <button type="submit" class="btn submit">Login</button>
+        </form>
+      </div>
+    </section>
+  {% else %}
+    <div>
+      <h1>Welcome to Oculus</h1>
+    </div>
+  {% endif %}
 {% endblock content %}

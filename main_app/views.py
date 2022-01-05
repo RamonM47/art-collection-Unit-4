@@ -18,8 +18,9 @@ S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
 BUCKET = 'art-collector-ramon'
 
 # Create your views here.
-def home(request):
-  return render(request, 'home.html')
+def home(request, post_id):
+  post = Post.objects.get(id=post_id)
+  return render(request, 'home.html', {'post': post})
 
 def about(request):
   return render(request, 'about.html')

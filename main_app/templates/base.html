@@ -6,36 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>👁️culus</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
   {% block head %}
   {% endblock %}
 </head>
-<body>
-  <header>
-    <ul>
+<body class='main_body'>
+  <header class='main_header'>
       {% if user.is_authenticated %}
-        
-        <li>
-          <a href="{% url 'community_index' %}">Community Posts</a>
-        </li>
-        <li>
-          <a href="{% url 'posts_create' %}">Create Post</a>
-        </li>
-        <li>
-          <a href="{% url 'logout' %}">Log out</a>
-        </li>
+      <div class='main_div'>
+          <a class = 'main_a' href="{% url 'community_index' %}">Community Posts</a>
+          <a class = 'main_a' href="{% url 'posts_create' %}">Create Post</a>
+          <a class = 'main_a' href="{% url 'logout' %}">Log out</a>
         {% else %}
-        <li>
-          <a href="{% url 'home' %}">Login</a>
-        </li>
-        <li>
-          <a href="{% url 'about' %}">About</a> 
-        </li>
-        <li>
-          <a href="{% url 'signup' %}">Sign Up</a>
-        </li>
+          <a class = 'main_a' href="{% url 'home' %}">Login</a>
+          <a class = 'main_a' href="{% url 'about' %}">About</a> 
+          <a class = 'main_a' href="{% url 'signup' %}">Sign Up</a>
+        </div>
       {% endif %}
-    </ul>
   </header>
   <main>
     {% block content %}

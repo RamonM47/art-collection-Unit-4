@@ -4,4 +4,4 @@ from .models import Work
 class WorkForm(ModelForm):
   class Meta:
     model = Work
-    fields = ['date', 'tod']
+    fields = ['date', 'tod', 'progress_pic']

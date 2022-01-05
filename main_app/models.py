@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import URLField
 from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
@@ -34,7 +35,7 @@ class Work(models.Model):
     choices=TOD, 
     default=TOD[0][0]
   )
-
+  progress_pic = URLField(max_length=250, default='https://toppng.com//public/uploads/preview/9d5-badly-drawn-thinking-emoji-11562863577r4jcmmnhf9.png')
   post = models.ForeignKey(Post, on_delete=models.CASCADE)
 
   def __str__(self):

@@ -23,7 +23,11 @@
     </section>
   {% else %}
     <div>
-      <h1>Welcome to Oculus</h1>
+      <h1 class='welcome'>Welcome back to Oculus!</h1>
+      <p>click the painting to come inside!</p>
+      <a href="/posts">
+        <img src="{% static 'images/HOME1.png' %}" alt="">
+      </a>
     </div>
   {% endif %}
 {% endblock content %}

@@ -17,13 +17,17 @@
         <a href="{% url 'posts_detail' post.id %}">
           {% if post.updates == True %}
             <img class='tag'
-            src="{% static 'images/export 1.png' %}" alt="complete">
+              src="{% static 'images/export 1.png' %}" 
+              alt="complete"
+            >
           {% else %}
             <img class='tag'
-            src="{% static 'images/export(2).png' %}" alt="incomplete">
+              src="{% static 'images/export(2).png' %}" 
+              alt="incomplete"
+            >
           {% endif %}
         </a>
-          <p>See {{post.name}} by {{post.user}}</p>
+        <p>See {{post.name}} by {{post.user}}</p>
       </div>
     </div>
   {% endfor %}
@@ -43,13 +47,14 @@
                 src="{{post.photo.url}}" 
                 alt="result">
             </a>
-              <p>New Updates!</p>
+            <p>New Updates!</p>
             {% else %}
             <a href="{% url 'posts_detail' post.id %}">
               <img 
-              class='art1'
-              src="{{post.sketch}}" 
-              alt="">  
+                class='art1'
+                src="{{post.sketch}}" 
+                alt=""
+              >  
             </a>
             <p>No New Updates On {{ post.name }}</p>
           {% endif %}

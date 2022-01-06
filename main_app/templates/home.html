@@ -9,15 +9,31 @@
   {% if not user.is_authenticated %}
     <section class='home_div'>
       <div class='le_container'>
-        <img class='le_frame' src="{% static 'images/HOME1.png' %}" alt="le_frame">
+        <img 
+          class='le_frame' 
+          src="{% static 'images/HOME1.png' %}" 
+          alt="le_frame">
       </div>
       <div class='form_div'>
-        <form action="{% url 'home' %}" method="post" class="login">
+        <form 
+          action="{% url 'home' %}" 
+          method="post" 
+          class="login"
+        >
           <h1 class='instruction'>Login to enter the Oculus</h1>
           {% csrf_token %}
           {{ form.as_p }}
-          <input type="hidden" name="next" value="{{ next }}">
-          <button type="submit" class="btn submit">Login</button>
+          <input 
+            type="hidden" 
+            name="next" 
+            value="{{ next }}"
+          >
+          <button 
+            type="submit" 
+            class="btn submit"
+          >
+            Login
+          </button>
         </form>
       </div>
     </section>

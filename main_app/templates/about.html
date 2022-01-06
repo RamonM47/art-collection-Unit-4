@@ -1,11 +1,44 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}"/>
+{% endblock head %}
+
 
 {% block content %}
+<section>
+  <div class='about_container'>
+    <img src="https://i.ibb.co/BCmRXbR/Untitled-Artwork-3.png" alt="">
+  </div>
 
-<h1>
-  About the art collector
-</h1>
-<p>
-  A toast to new beginnings!
-</p>
+  <div class='look_down'>
+    <h1 class='text'>
+        Look Below for Guide! 
+    </h1>
+    <p class='arrow'>
+      🡻
+    </p>
+  </div>
+  <div class='look_down1'>
+    <h1 class='text'>
+        Look Below for Guide! 
+    </h1>
+    <p class='arrow'>
+      🡻
+    </p>
+  </div>
+  <div class='guide'>
+    <h1>Purpose:</h1>
+    <p>
+      I originally made this application to keep track of any and all progress on my drawings/paintings. Keeping track of individual pictures on separate platforms made it hard for me to learn much from a drawings previous iterations, and having them on hand helps me see the growth and where to eventually take any piece that I am working on. I figured that other artists who can benifit from this should have the ability to use it, so anyone who signs up will have this useful tool on hand too. 
+    </p>
+    <h2>
+      How do I work this thing?
+    </h2>
+    <p>
+      As you may have seen, the communiy page may seem bleak with limited options.
+    </p>
+  </div>
+</section>
 {% endblock %}

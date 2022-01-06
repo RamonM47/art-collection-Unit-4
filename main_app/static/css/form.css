@@ -1,6 +1,7 @@
 .form_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 36px;
 }
 
 .form {
@@ -13,7 +14,7 @@
 }
 
 h1 {
-  padding-top: 36px;
+  padding-top: 72px;
   margin: 0;
 }
 

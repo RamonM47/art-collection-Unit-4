@@ -8,21 +8,28 @@
 {% block content %}
 
 <div class='page_header'>
-  {% if object %}
-    <h1> Edit your Post! </h1>
+{% if object %}
+  <h1> Edit your Post! </h1>
 </div>
-  {% else %}
+{% else %}
 <div class='page_header'>
-    <h1> Create a Post! </h1>
+  <h1> Create a Post! </h1>
 </div>
 {% endif %}
 <div class='form_container'>
-  <form action="" method="post" class="form">
-    {% csrf_token %}
+  <form 
+    action="" 
+    method="post" 
+    class="form"
+  >
+  {% csrf_token %}
     <table>
       {{ form.as_table }}
     </table>
-    <button type='submit' class='btn submit'>
+    <button 
+      type='submit' 
+      class='btn submit'
+    >
       Submit!
     </button>
   </form>

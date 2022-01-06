@@ -38,8 +38,8 @@
         <h3>The goal of this peice is...</h3>
         <p>{{post.goal}}</p>
       
-        <a href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>
-        <a href="{% url 'posts_delete' post.id %}" class="btn danger">Delete</a>
+        <a class='edit_btn' href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>
+        <a class='delete_btn' href="{% url 'posts_delete' post.id %}" class="btn danger">Delete</a>
       </div>
 
       <div class='post_change'>

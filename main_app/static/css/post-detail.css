@@ -36,7 +36,7 @@
 
 .post_progress {
   margin: 0;
-  padding-top: 72px;
+  padding-top: 36px;
   grid-row: 1;
   grid-column: 1;
 }
@@ -52,6 +52,7 @@
 
 .usr-img {
   width: 100%;
+  border: solid black
 }
 
 .sketch {
@@ -61,4 +62,30 @@
 
 .sketch_img {
   width: 90%;
+}
+
+.edit_btn {
+  transition-duration: 0.4s;
+  color: black;
+  text-decoration: none;
+  font-size: 40px;
+  border: solid black;
+}
+
+.edit_btn:hover {
+  background-color: #3184b4;
+  color: white;
+}
+
+.delete_btn {
+  transition-duration: 0.4s;
+  color: black;
+  text-decoration: none;
+  font-size: 40px;
+  border: solid black;
+}
+
+.delete_btn:hover {
+  background-color: #bb3d2c;
+  color: white;
 }

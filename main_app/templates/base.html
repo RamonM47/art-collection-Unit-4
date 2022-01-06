@@ -13,16 +13,16 @@
 <body class='main_body'>
   <header class='main_header'>
       {% if user.is_authenticated %}
-      <div class='main_div'>
+        <div class='main_div'>
           <a class = 'main_a' href="{% url 'community_index' %}">Community Posts</a>
           <a class = 'main_a' href="{% url 'posts_create' %}">Create Post</a>
           <a class = 'main_a' href="{% url 'logout' %}">Log out</a>
-        {% else %}
+      {% else %}
           <a class = 'main_a' href="{% url 'home' %}">Login</a>
-          <a class = 'main_a' href="{% url 'about' %}">About</a> 
           <a class = 'main_a' href="{% url 'signup' %}">Sign Up</a>
-        </div>
       {% endif %}
+          <a class = 'main_a' href="{% url 'about' %}">About</a> 
+        </div>
   </header>
   <main>
     {% block content %}

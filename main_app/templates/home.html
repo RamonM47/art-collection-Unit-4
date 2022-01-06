@@ -20,7 +20,9 @@
           method="post" 
           class="login"
         >
-          <h1 class='instruction'>Login to enter the Oculus</h1>
+          <h1 class='instruction'>
+            Login to enter the Oculus
+          </h1>
           {% csrf_token %}
           {{ form.as_p }}
           <input 

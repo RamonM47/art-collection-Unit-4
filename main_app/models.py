@@ -43,7 +43,10 @@ class Work(models.Model):
     max_length=250, 
     default='https://toppng.com//public/uploads/preview/9d5-badly-drawn-thinking-emoji-11562863577r4jcmmnhf9.png'
   )
-  post = models.ForeignKey(Post, on_delete=models.CASCADE)
+  post = models.ForeignKey(
+    Post,
+    on_delete=models.CASCADE
+  )
 
   def __str__(self):
     return f"{self.get_tod_display()} on {self.date}"

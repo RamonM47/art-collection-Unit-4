@@ -7,7 +7,11 @@
   <h1>Delete Post?</h1>
 </div>
 <h2>Are you sure you want to delete {{ object.name }}?</h2>
-<form action="" method="POST" class="form">
+<form 
+  action="" 
+  method="POST" 
+  class="form"
+>
 {% csrf_token %}
   <a 
     href="{% url 'posts_detail' post.id %}" 
@@ -15,7 +19,12 @@
   >
     Cancel
   </a>
-  <button type="submit" class="btn danger">Yes - Delete!</button>
+  <button 
+    type="submit" 
+    class="btn danger"
+  >
+    Yes - Delete!
+  </button>
 </form>
 
 {% endblock %}

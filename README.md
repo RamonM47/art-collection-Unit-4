@@ -3,7 +3,7 @@
 ---
 
 ## Objective
-I wanted to create an app where i can track the progress of my paintings/drawings as i make new aditions. This will help me to keep track of my additions and not lose anything i may have learned
+I wanted to create an app where i can track the progress of my paintings/drawings as i make new additions. This will help me to keep track of my additions and not lose anything i may have learned
 
 ---
 ## Launch

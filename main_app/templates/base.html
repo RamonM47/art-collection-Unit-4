@@ -13,7 +13,6 @@
 <body class='main_body'>
   <header class='main_header'>
       {% if user.is_authenticated %}
-        <div class='main_div'>
           <a 
             class='main_a' 
             href="{% url 'community_index' %}"
@@ -52,7 +51,6 @@
           >
             About
           </a> 
-        </div>
   </header>
   <main>
     {% block content %}

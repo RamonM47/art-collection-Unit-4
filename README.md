@@ -15,6 +15,8 @@ Click [here](https://oculus-art-collector.herokuapp.com/) to go to the applicati
 
 ## Planning
 
+### Link to trello [Here](https://trello.com/b/1oJS9Deq/unit-4-art-project) 
+
 ### Wireframe
 ![image of wireframe](https://trello.com/1/cards/61c4c9e2f543032aaa7aa28a/attachments/61c4c9e2f543032aaa7aa295/previews/61c4c9e3f543032aaa7aa2d5/download/WireFrame4.png)
 
